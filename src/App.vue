@@ -2,28 +2,34 @@
   <v-app>
     <v-app-bar app color="#2E3D93" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title>The Fake</v-toolbar-title>
+      <v-avatar :tile="true">
+        <img :src="require('@/assets/logo.png')" alt="logo" />
+      </v-avatar>
+      <v-toolbar-title>Web App</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-toolbar-items>
-        <v-btn text> <v-icon color="red">close</v-icon> Link 1</v-btn>
-        <v-btn text>Link 2</v-btn>
-        <v-btn text>Link 3</v-btn>
-      </v-toolbar-items>
-      <v-btn icon>
-        <v-icon>heart</v-icon>
-      </v-btn>
+      <template v-if="$vuetify.breakpoint.xs">
+        <v-btn icon> <v-icon color="red">build</v-icon></v-btn>
+      </template>
 
-      <v-btn icon>
+      <template v-if="!$vuetify.breakpoint.xs">
+        <v-toolbar-items>
+          <v-btn text> <v-icon color="red">close</v-icon> dasd</v-btn>
+          <v-btn text> <v-icon color="red">close</v-icon> dasd</v-btn>
+          <v-btn text> <v-icon color="red">close</v-icon> dasd</v-btn>
+        </v-toolbar-items>
+      </template>
+
+      <v-btn :to="{ name: 'login' }" text="">
         <v-icon>close</v-icon>
+        iniciar sesión
       </v-btn>
 
       <v-menu left bottom>
         <template v-slot:activator="{ on }">
           <v-btn icon v-on="on">
-            <v-icon>mdi-dots-vertical</v-icon>
+            <v-icon>close</v-icon>
           </v-btn>
         </template>
 
@@ -36,9 +42,8 @@
     </v-app-bar>
 
     <v-navigation-drawer
-      absolute
       dark
-      src="https://i.pinimg.com/originals/b0/ef/d9/b0efd9474a44bf1220f89f43cbc71d49.png"
+      src="@/assets/fondo.png"
       :mini-variant.sync="mini"
       app
       v-model="drawer"
@@ -73,7 +78,7 @@
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title> sdfsdf</v-list-item-title>
+            <v-list-item-title>Reporte de avance lineal</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -88,7 +93,9 @@
 <script>
 export default {
   name: "App",
-
+  mounted() {
+    //console.log(this.$vuetify.breakpoint.name);
+  },
   data: () => ({
     drawer: false,
     mini: true
