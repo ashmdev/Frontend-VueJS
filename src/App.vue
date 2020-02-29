@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :style="{ 'background-color': color }">
     <v-app-bar app color="#2E3D93" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-avatar :tile="true">
@@ -86,11 +86,13 @@
 
     <v-content>
       <router-view></router-view>
+      <particlesJS />
     </v-content>
   </v-app>
 </template>
 
 <script>
+import particlesJS from "./components/ParticlesJS";
 export default {
   name: "App",
   mounted() {
@@ -98,7 +100,9 @@ export default {
   },
   data: () => ({
     drawer: false,
-    mini: true
-  })
+    mini: true,
+    color: "#85caff"
+  }),
+  components: { particlesJS }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <input type="text" v-model="roleabdel" />
-    <pre>{{ currentUser }}   <div v-if="token == null"> Soy nuloooo </div></pre>
+    <pre>{{ currentUser }}--{{token}} <div v-if="token == null"> Soy nuloooo </div></pre>
     <v-chart :options="chartOptionsBar" autoresize></v-chart>
     <v-chart :init-options="initOptions" :options="option" autoresize></v-chart>
   </div>

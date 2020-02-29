@@ -40,15 +40,16 @@ export default {
       input: {
         username: "admin",
         password: "pass"
-      }
+      },
+      returnUrl: ""
     };
   },
   methods: {
     ...mapActions(["login"]),
-    onSubmit() {
+    async onSubmit() {
       //console.log("entre al metodo login");
       if (this.input.username === "admin" && this.input.password === "pass") {
-        this.login();
+        await this.login();
         //console.log("me he autenticado " + this.authenticated);
         this.$router.push({ name: "chart" });
       } else {
